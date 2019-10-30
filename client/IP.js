@@ -1,9 +1,7 @@
 function menuClick() {
-//  ref.class = "active";
-
   var listContainer = document.getElementById("ul");
 
-  var lists = btnContainer.getElementsByClassName("li");
+  var lists = listContainer.getElementsByClassName("li");
 
   for (var i = 0; i < lists.length; i++) {
     lists[i].addEventListener("click", function() {
