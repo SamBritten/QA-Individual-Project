@@ -1,0 +1,42 @@
+.navbar-fixed-left {
+  width: 140px; /* 140px */
+  position: fixed;
+  border-radius: 0;
+  height: 100%;
+}
+
+.navbar-fixed-left .navbar-nav > li {
+  float: left;  /* Cancel default li float: left */
+  display: flex;
+  width: 139px; /* 139px */
+  padding-top: 7px;
+}
+
+.navbar-fixed-left + .container {
+  padding-left: 160px; /* 160px */
+}
+
+.container {
+  height: 1000px;
+  padding-left: 0px;
+  left: 160px;
+  margin-left: 35px;
+  border-left-width: 10px;
+  width:843px;
+}
+
+.wrapper {
+  padding-left: 140px; /* 140px */
+  float: center;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+body {
+  background-color: beige;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
