@@ -19,8 +19,8 @@
 <!-- <div class="navbar navbar-inverse navbar-fixed-left">
   <a class="navbar-brand">Mechanical keyboards</a>
   <ul class="nav navbar-nav">
-   <li onclick="menuClick(this)"><a href="#home"><i class="fa fa-home"></i><span class="glyphicon glyphicon-home"></span>
-     <span> Home </span></a></li>
+   <li onclick="menuClick(this)"><a href="#home"><i class="fa fa-home"></i>
+    <span class="glyphicon glyphicon-home"></span><span> Home </span></a></li>
    <li onclick="menuClick(this)"><a href="#sizes"><span> Keyboard sizes </span></a></li>
    <li onclick="menuClick(this)"><a href="#layouts"><span> Keyboard layouts </span></a></li>
    <li onclick="menuClick(this)"><a href="#switches"><span> Mechanical switches </span></a></li>
@@ -29,13 +29,15 @@
 <!--end navigation-->
 <body>
   <div class="navbar navbar-inverse navbar-fixed-left">
-    <a class="navbar-brand">Mechanical keyboards</a>
-    <ul class="nav navbar-nav">
-     <li onclick="menuClick(this)"><a href="#home"><i class="fa fa-home"></i><span class="glyphicon glyphicon-home"></span>
-       <span> Home </span></a></li>
-     <li onclick="menuClick(this)"><a href="#sizes"><span> Keyboard sizes </span></a></li>
-     <li onclick="menuClick(this)"><a href="#layouts"><span> Keyboard layouts </span></a></li>
-     <li onclick="menuClick(this)"><a href="#switches"><span> Mechanical switches </span></a></li>
+    <a id="a1" class="navbar-brand" onmouseover="higlightDisable()"></i>Mechanical keyboards</a>
+    <ul id="ul" class="nav navbar-nav">
+     <li  class="li active" onclick="menuClick()"><a href="#home" style="padding-right:68px">
+       <i class="fa fa-home"></i><span class="glyphicon glyphicon-home"></span><span> Home </span></a></li>
+     <li class="li" onclick="menuClick()"><a href="#sizes" style="padding-right:29px">
+       <span> Keyboard sizes </span></a></li>
+     <li class="li" onclick="menuClick()"><a href="#layouts" style="padding-right:16px">
+       <span> Keyboard layouts </span></a></li>
+     <li class="li" onclick="menuClick()"><a href="#switches" ><span> Mechanical switches </span></a></li>
     </ul>
   </div>
 <!-- 1st section-->

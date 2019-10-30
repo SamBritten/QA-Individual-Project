@@ -1,15 +1,19 @@
-function menuClick(ref) {
-  ref.class = "active";
+function menuClick() {
+//  ref.class = "active";
 
-  var listContainer = document.getElementById("myDIV");
+  var listContainer = document.getElementById("ul");
 
-  var btns = btnContainer.getElementsByClassName("btn");
+  var lists = btnContainer.getElementsByClassName("li");
 
   for (var i = 0; i < lists.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
+    lists[i].addEventListener("click", function() {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
 }
+
+function higlightDisable() {
+  document.getElementById("a1").style.color = "gray";
 }

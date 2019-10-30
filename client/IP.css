@@ -20,7 +20,7 @@
   height: 1000px;
   padding-left: 0px;
   left: 160px;
-  margin-left: 35px;
+  margin-left: 35px; /*35px*/
   border-left-width: 10px;
   width:843px;
 }
@@ -32,6 +32,10 @@
   flex-direction: column;
   width: 100vw;
 }
+
+/*.a {
+  padding-right: 68px;
+}*/
 
 body {
   background-color: beige;
