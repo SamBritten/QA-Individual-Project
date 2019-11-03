@@ -11,6 +11,7 @@ import com.nationwide.keyboards.entities.Switches;
 public interface SwitchRepository extends JpaRepository<Switches, Long> {
 
 	public ArrayList<Switches> findAll();
+	public Switches findByid(Long ID);
 	public ArrayList<Switches> findByManufacturer(String Mname);
 	public ArrayList<Switches> findByType(String Tname);
 	public ArrayList<Switches> findByActuation(int AFname);
@@ -21,6 +22,7 @@ public interface SwitchRepository extends JpaRepository<Switches, Long> {
 	public ArrayList<Switches> findByActuationBetween(int AF1, int AF2);
 	public ArrayList<Switches> findByTactileGreaterThanEqual(int TFname);
 	public ArrayList<Switches> findByTactileLessThanEqual(int TFname);
-	public ArrayList<Switches> findByTactileBetween(int TF1, int TF2); 
+	public ArrayList<Switches> findByTactileBetween(int TF1, int TF2);
+	public ArrayList<Switches> save(ArrayList<Switches> switches); 
 	
 }
