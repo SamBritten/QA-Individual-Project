@@ -19,7 +19,7 @@ function higlightDisable() {
 function getSwitchRecords() {
   console.log("gsr");
   let request = new XMLHttpRequest();
-  request.open("GET", "http://localhost:9005/switches.html");
+  request.open("GET", "http://"+location.hostname+":9005/switches.html");
   request.onload = function() {
       displayRecords(JSON.parse(request.response));
     }
@@ -62,7 +62,7 @@ function addSwitchRecord(formData) {
   let tactile = document.getElementById("tfF").value;
   let image = document.getElementById("iF").value;
   let request = new XMLHttpRequest();
-  request.open("POST", "http://localhost:9005/addNewSwitch");
+  request.open("POST", "http://"+location.hostname+":9005/addNewSwitch");
   request.setRequestHeader("Content-Type", "application/json");
   request.onload = function(){
     getSwitchRecords();
@@ -74,7 +74,7 @@ function addSwitchRecord(formData) {
 
 function deleteSwitchRecord(id) {
   let request = new XMLHttpRequest();
-  request.open("DELETE", "http://localhost:9005/deleteSwitch/"+id);
+  request.open("DELETE", "http://"+location.hostname+":9005/deleteSwitch/"+id);
   request.onload = function () {
     getSwitchRecords();
   }
@@ -92,7 +92,7 @@ function updateSwitchRecord(formData) {
   let tactile = document.getElementById("tfF2").value;
   let image = document.getElementById("iF2").value;
   let request = new XMLHttpRequest();
-  request.open("PUT", "http://localhost:9005/updateSwitch/"+clickedId);
+  request.open("PUT", "http://"+location.hostname+":9005/updateSwitch/"+clickedId);
   request.setRequestHeader("Content-Type", "application/json")
   request.onload = function () {
     getSwitchRecords();
