@@ -57,7 +57,6 @@ function checkSwitches() {
 function addSwitchRecord(formData) {
   let manufacturer = document.getElementById("mF").value;
   let name = document.getElementById("nF").value;
-  //let type = document.getElementById("tF").value;
   let type = document.querySelector('input[name = "type"]:checked').value;
   let actuation = document.getElementById("afF").value;
   let tactile = document.getElementById("tfF").value;
@@ -82,14 +81,29 @@ function deleteSwitchRecord(id) {
   request.send();
 }
 
-function updateSwitchRecord(id) {
+let clickedId;
+
+
+function updateSwitchRecord(formData) {
+  let manufacturer = document.getElementById("mF2").value;
+  let name = document.getElementById("nF2").value;
+  let type = document.querySelector('input[name = "type2"]:checked').value;
+  let actuation = document.getElementById("afF2").value;
+  let tactile = document.getElementById("tfF2").value;
+  let image = document.getElementById("iF2").value;
   let request = new XMLHttpRequest();
-  request.open("PUT", "http://localhost:9005/updateSwitch/"+id);
+  request.open("PUT", "http://localhost:9005/updateSwitch/"+clickedId);
+  request.setRequestHeader("Content-Type", "application/json")
   request.onload = function () {
     getSwitchRecords();
   }
-  request.send();
+
+
+  let jsonData=JSON.stringify({"id": clickedId, "manufacturer":manufacturer, "name":name, "type":type, "actuation":actuation,
+   "tactile":tactile, "image":image});
+  request.send(jsonData);
 }
+
 
 function displayRecords(jsData) {
   let showAll = document.getElementById("switches");
@@ -101,16 +115,21 @@ function displayRecords(jsData) {
     let list = document.createElement("ul");
     list.className = "list-group";
     let manufacturer=document.createElement("li");
+    manufacturer.id="manufacturer";
     manufacturer.className="list-group-item";
     let name=document.createElement("li");
+    name.id="name";
     name.className="list-group-item";
     let type=document.createElement("li");
     type.className="list-group-item";
     let actuation=document.createElement("li");
+    actuation.id="actuation";
     actuation.className="list-group-item";
     let tactile=document.createElement("li");
+    tactile.id="tactile";
     tactile.className="list-group-item";
     let image=document.createElement("li");
+    image.id="image";
     image.className="list-group-item";
     let imageBox = document.createElement("img");
     imageBox.setAttribute("src", item.image);
@@ -126,10 +145,24 @@ function displayRecords(jsData) {
     let update = document.createElement("button");
     update.innerText = "EDIT";
     update.addEventListener("click", function() {
-      updateSwitchRecord(item.id);
+      clickedId = item.id;
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+      document.getElementById("editForm").style.visibility="visible";
+
+      document.getElementById("mF2").value=item.manufacturer;
+      document.getElementById("nF2").value=item.name;
+      //document.querySelector('input[name = "type"]:checked').value=item.type;
+      document.getElementById("afF2").value=item.actuation;
+      document.getElementById("tfF2").value=item.tactile;
+      document.getElementById("iF2").value=item.image;
     });
 
-    image.appendChild(imageBox)
+    image.appendChild(imageBox);
+
     manufacturer.innerText="Manufacturer: " + item.manufacturer;
     name.innerText="Name: " + item.name;
     type.innerText="Type: " + item.type;

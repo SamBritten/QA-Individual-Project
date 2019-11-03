@@ -24,56 +24,105 @@
     <ul id="ul" class="nav navbar-nav">
      <li  class="li" name="H" onclick="menuClick()"><a href="index.html" style="padding-right:68px">
        <i class="fa fa-home"></i><span class="glyphicon glyphicon-home"></span><span> Home </span></a></li>
-     <li class="li" name="KS" onclick="menuClick()"><a href="size.html" style="padding-right:29px">
-       <span> Keyboard sizes </span></a></li>
-     <li class="li" name="L" onclick="menuClick()"><a href="layout.html" style="padding-right:16px">
-       <span> Keyboard layouts </span></a></li>
+
      <li class="li active" name="MS" onclick="menuClick()"><a href="switches.html" ><span> Mechanical switches </span></a></li>
     </ul>
   </div>
+
+  <!-- <li class="li" name="KS" onclick="menuClick()"><a href="size.html" style="padding-right:29px">
+    <span> Keyboard sizes </span></a></li>
+  <li class="li" name="L" onclick="menuClick()"><a href="layout.html" style="padding-right:16px">
+    <span> Keyboard layouts </span></a></li> -->
 
 <!-- <div style="margin-left: 180px; margin-bottom: 15px; margin-top: 7px" id="addBTNspace">
   <input type="button" id="addBTN" value="Add new switch" onclick="newSwitchForm()"></input>
 </div> -->
 
 <!-- <div class="container"> -->
-<form action="javascript:addSwitchRecord(this)" class="form" style="margin-left: 180px; margin-bottom: 15px; margin-top: 7px"
+<form action="javascript:addSwitchRecord(this)" class="form" style="margin-left: 180px; margin-bottom: 15px; margin-top: 7px; width: 485px"
   method = "post" onsubmit = "return checkSwitches()">
   <b><u>Add new Switch:</u></b> <br><br>
-  Manufacturer: <input type = "text" name="manufacturer" style="margin-left: 8px; width: 180px" id = "mF" placeholder="Manufacturer" class = "text">
+  Manufacturer: <input type = "text" name="manufacturer" style="margin-left: 8px; width: 180px" id = "mF"
+    placeholder="Manufacturer" class = "text">
   <span id = "s1" style = "visibility:hidden; color:red"> *Please enter a manufacturer </span> <br>
 
-  Name: <input type = "text" name="name" style="margin-left: 53px; margin-bottom: 2px; width: 180px" id = "nF" placeholder="Switch name" class = "text">
+  Name: <input type = "text" name="name" style="margin-left: 53px; margin-bottom: 2px; width: 180px" id = "nF"
+    placeholder="Switch name" class = "text">
   <span id = "s2" style = "visibility:hidden; color:red"> *Please enter a switch name </span> <br>
 
   <div style="margin-bottom: -22px">
   Type: <label class="radio-inline>">
-          <input type = "radio" id = "tlF" name="type" value="Linear" class = "radio" checked></input>Linear
+          <input type = "radio" id = "tlF" name="type" value="Linear" style="margin-left: 61px; margin-right: 3px"
+            class = "radio" checked></input>Linear
         </label>
           <!-- <label for="Linear">Linear</label> -->
         <label class="radio-inline>">
-          <input type = "radio" id = "tcF" name="type" value="Clicky" class = "radio"></input>Clicky
+          <input type = "radio" id = "tcF" name="type" value="Clicky" style="margin-right: 3px" class = "radio"></input>Clicky
         </label>
           <!-- <label for="Clicky">Clicky</label> -->
         <label class="radio-inline>">
-          <input type = "radio" id = "ttF" name="type" value="Tactile" class = "radio"></input>tactile
+          <input type = "radio" id = "ttF" name="type" value="Tactile" style="margin-right: 3px" class = "radio"></input>tactile
         </label>
           <!-- <label for="Tactile">Tactile</label> -->
   </div><br>
 
-  Actuation force: <input type = "number" name="actuation" maxlength="3" style="width: 180px" id = "afF" placeholder="Actuation force" class = "number">
+  Actuation force: <input type = "number" name="actuation" maxlength="3" style="width: 180px" id = "afF"
+    placeholder="Actuation force" class = "number">
   <span id = "s3" style = "visibility:hidden; color:red"> *Please enter an actuation force </span> <br>
 
   Tactile force: <input type = "number" name="tactile" maxlength="3" style="margin-left: 18px; width: 180px" id = "tfF"
     placeholder="Tactile force (if applicable)" class = "number"> <br>
 
-  Image: <input type = "text" name="image" style="margin-left: 54px; width: 180px" id = "iF" placeholder="Image URL" class = "text">
+  Image: <input type = "text" name="image" style="margin-left: 54px; width: 180px" id = "iF" placeholder="Image URL"
+    class = "text">
   <span id = "s4" style = "visibility:hidden; color:red"> *Please enter an image URL </span> <br><br>
 
   <input type = "submit" class = "button">
   <br><br>
 </form>
 <!-- </div> -->
+
+<form action="javascript:updateSwitchRecord(this)" id="editForm" class="form" style="margin-left: 180px; margin-bottom: 15px;
+margin-top: 7px; width: 485px; visibility: hidden" method = "put">
+  <b><u>Update Switch:</u></b> <br><br>
+  Manufacturer: <input type = "text" name="manufacturer" style="margin-left: 8px; width: 180px" id = "mF2"
+    placeholder="Manufacturer" class = "text" required>
+  <span id = "s1.2" style = "visibility:hidden; color:red"> *Please enter a manufacturer </span> <br>
+
+  Name: <input type = "text" name="name" style="margin-left: 53px; margin-bottom: 2px; width: 180px" id = "nF2"
+    placeholder="Switch name" class = "text" required>
+  <span id = "s2.2" style = "visibility:hidden; color:red"> *Please enter a switch name </span> <br>
+
+  <div style="margin-bottom: -22px">
+  Type: <label class="radio-inline>">
+          <input type = "radio" id = "tlF2" name="type2" value="Linear" style="margin-left: 61px; margin-right: 3px"
+            class = "radio" checked required></input>Linear
+        </label>
+          <!-- <label for="Linear">Linear</label> -->
+        <label class="radio-inline>">
+          <input type = "radio" id = "tcF2" name="type2" value="Clicky" style="margin-right: 3px" class = "radio" required></input>Clicky
+        </label>
+          <!-- <label for="Clicky">Clicky</label> -->
+        <label class="radio-inline>">
+          <input type = "radio" id = "ttF2" name="type2" value="Tactile" style="margin-right: 3px" class = "radio" required></input>tactile
+        </label>
+          <!-- <label for="Tactile">Tactile</label> -->
+  </div><br>
+
+  Actuation force: <input type = "number" name="actuation" maxlength="3" style="width: 180px" id = "afF2"
+    placeholder="Actuation force" class = "number" required>
+  <span id = "s3.2" style = "visibility:hidden; color:red"> *Please enter an actuation force </span> <br>
+
+  Tactile force: <input type = "number" name="tactile" maxlength="3" style="margin-left: 18px; width: 180px" id = "tfF2"
+    placeholder="Tactile force (if applicable)" class = "number" required> <br>
+
+  Image: <input type = "text" name="image" style="margin-left: 54px; width: 180px" id = "iF2" placeholder="Image URL"
+    class = "text" required>
+  <span id = "s4.2" style = "visibility:hidden; color:red"> *Please enter an image URL </span> <br><br>
+
+  <input type = "submit" class = "button">
+  <br><br>
+</form>
 
 <div class="wrapper">
   <!-- <input type="button" id="showAll" value="See all switches" onclick="getSwitchRecords()"></input> -->
